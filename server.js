@@ -14,12 +14,11 @@ connectDB();
 
 const corsOptions ={
 
-    origin: process.env.ALLOWED_CLIENTS.split()
+    origin: process.env.ALLOWED_CLIENTS.split(',')
     //['http://localhost:3000' , 'http://localhost:5000','http://localhost:3001']
 }
 
 
-app.use(cors(corsOptions));
 //template engine
 app.set('views', path.join(__dirname,'/views'));
 app.set('view engine','ejs');
