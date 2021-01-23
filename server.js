@@ -1,7 +1,9 @@
 const express =require('express');
+const request = require('request')
 const app = express();
+
 const path =require('path');
-const cors =require('cors');
+
 
 const PORT =process.env.PORT || 3000;
 app.use(express.static('public'));
@@ -12,12 +14,10 @@ connectDB();
 
 //cors
 
-const corsOptions ={
-
-    origin: process.env.ALLOWED_CLIENTS
-    //['http://localhost:3000' , 'http://localhost:5000','http://localhost:3001']
-}
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
 
 //template engine
 app.set('views', path.join(__dirname,'/views'));
