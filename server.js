@@ -22,10 +22,6 @@ app.set('view engine','ejs');
 //routes
 
 app.get('/', function (req, res) {
-
-
-
-   
     return res.render('home'); 
 });
 app.use('/api/files',require('./routes/files'));
